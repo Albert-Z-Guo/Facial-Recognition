@@ -1,0 +1,6 @@
+
+insightface
+mxnet
+numpy
+opencv-python
+Pillow
