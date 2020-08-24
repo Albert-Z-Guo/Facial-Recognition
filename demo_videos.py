@@ -13,7 +13,7 @@ def detect_face(frame):
     return frame
 
 video = cv2.VideoCapture('./tests/videos/airport.mp4')
-while(True):
+while True:
     ret, frame = video.read()
     cv2.imshow('facial detection', detect_face(frame))
     if cv2.waitKey(1) & 0xFF == ord('q'):
