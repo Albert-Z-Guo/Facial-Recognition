@@ -12,7 +12,7 @@ def detect_face(frame):
         cv2.rectangle(frame, (x, y), (x2, y2), (0,255,0), 1)
     return frame
 
-video = cv2.VideoCapture('/Users/guo/Documents/GitHub/Facial Recognition/tests/videos/airport.mp4')
+video = cv2.VideoCapture('./tests/videos/airport.mp4')
 while(True):
     ret, frame = video.read()
     cv2.imshow('facial detection', detect_face(frame))
