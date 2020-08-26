@@ -11,9 +11,9 @@ model_face_detection_only = insightface.model_zoo.get_model('retinaface_r50_v1')
 model_face_detection_only.prepare(ctx_id = -1, nms=0.4)
 
 def annotate(frame, text, x, y, row_index, margin=5):
-    text_width, text_height = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.3, thickness=1)[0]
+    (text_width, text_height), baseline = cv2.getTextSize(text, cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.3, thickness=1)
     cv2.rectangle(frame, (x, y-(row_index+1)*(text_height+margin)), (x+text_width, y-row_index*(text_height+margin)), (170,178,32), cv2.FILLED)
-    cv2.putText(frame, text, (x, y-row_index*(text_height+margin)-text_height//2), cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.3, color=(47,255,173), thickness=1)
+    cv2.putText(frame, text, (x, y-row_index*(text_height+margin)-baseline), cv2.FONT_HERSHEY_SIMPLEX, fontScale=0.3, color=(47,255,173), thickness=1)
     return frame
 
 def detect_face_comprehensive(frame, model):
