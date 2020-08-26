@@ -34,9 +34,7 @@ def detect_face(frame, model):
 path_input = Path('./tests/videos/airport.mp4')
 path_output = path_input.parent / (path_input.stem + '_detected' + path_input.suffix)
 video_input = cv2.VideoCapture(str(path_input))
-fps = int(video_input.get(cv2.CAP_PROP_FPS))
-width, height = int(video_input.get(cv2.CAP_PROP_FRAME_WIDTH)), int(video_input.get(cv2.CAP_PROP_FRAME_HEIGHT))
-video_output = cv2.VideoWriter(str(path_output), int(video_input.get(cv2.CAP_PROP_FOURCC)), fps, (width, height))
+video_output = cv2.VideoWriter(str(path_output), int(video_input.get(cv2.CAP_PROP_FOURCC)), int(video_input.get(cv2.CAP_PROP_FPS)), (int(video_input.get(cv2.CAP_PROP_FRAME_WIDTH)), int(video_input.get(cv2.CAP_PROP_FRAME_HEIGHT))))
 
 while video_input.isOpened():
     ret, frame_input = video_input.read()
