@@ -7,6 +7,7 @@ To install all libraries/dependencies used in this project, run
 brew install ffmpeg
 pip3 install -r requirement.txt
 ```
+For Windows or Linux users, it is recommended to use [Conda](https://docs.conda.io/en/latest/) to install [FFmpeg](https://ffmpeg.org/).
 
 ### References:
 - [InsightFace: a Deep Learning Toolkit for Face Analysis](http://insightface.ai/)
