@@ -12,3 +12,4 @@ For Windows or Linux users, it is recommended to use [Conda](https://docs.conda.
 ### References:
 - [InsightFace: a Deep Learning Toolkit for Face Analysis](http://insightface.ai/)
 - [A survey on deep learning based face recognition](https://www.sciencedirect.com/science/article/abs/pii/S1077314219301183)
+- [test footage source](https://www.pexels.com/video/travelers-inside-an-airport-terminal-3736783/)
