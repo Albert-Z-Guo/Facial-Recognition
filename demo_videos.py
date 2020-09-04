@@ -17,18 +17,24 @@ def annotate(frame, text, x, y, row_index, margin=5):
     return frame
 
 def detect_face_comprehensive(frame, model):
+    '''draw faces' bounding boxes and landmarks along with age and gender predictions'''
     for face in model.get(frame):
         x, y, x2, y2 = face.bbox.astype(np.int).flatten()
         cv2.rectangle(frame, (x, y), (x2, y2), (0,255,0), 1)
+        for point in face.landmark.astype(np.int):
+            cv2.circle(frame, (point[0], point[1]), radius=1, color=(0,0,255), thickness=1)
         annotate(frame, f'age: {face.age}', x, y, 0)
         annotate(frame, f"gender: {'female' if face.gender==0 else 'male'}", x, y, 1)
     return frame
 
 def detect_face(frame, model):
-    bounding_boxes, landmark = model.detect(frame, threshold=0.5, scale=1.0)
-    for bounding_box in bounding_boxes:
+    '''draw faces' bounding boxes and landmarks'''
+    bounding_boxes, landmarks = model.detect(frame, threshold=0.5, scale=1.0)
+    for (bounding_box, landmark) in zip(bounding_boxes, landmarks):
         x, y, x2, y2, _ = bounding_box.astype(np.int).flatten()
         cv2.rectangle(frame, (x, y), (x2, y2), (0,255,0), 1)
+        for point in landmark.astype(np.int):
+            cv2.circle(frame, (point[0], point[1]), radius=1, color=(255,0,255), thickness=1)
     return frame
 
 path_input = Path('./tests/videos/airport.mp4')
