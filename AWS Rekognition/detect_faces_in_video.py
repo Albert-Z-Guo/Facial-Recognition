@@ -1,7 +1,8 @@
 import boto3
 
 
-def GetFaceDetectionResults(event, context):
+def detect_faces_in_video(event, context):
+    '''lambda handler to detect faces in a video'''
     client = boto3.client('rekognition')
     response=client.start_face_detection(Video={'S3Object': {'Bucket': event['bucket'], 'Name': event['filename']}})
 
