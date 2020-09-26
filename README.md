@@ -4,7 +4,7 @@ This is a project to explore state-of-the-art facial recognition models.
 
 For cloud deployment, `AWS Rekognition` directory contains [AWS Lambda](https://aws.amazon.com/lambda/) code snippets to detect and compare faces in images and to detect faces in videos using [AWS Rekognition API](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/rekognition.html).
 
-For on-premises deployment, [InsightFace](http://insightface.ai/)) models are used extensively. In particular, [RetinaFace](https://arxiv.org/abs/1905.00641) is the model to detect faces and [ArcFace](https://arxiv.org/abs/1801.07698) is the model to extract facial features for comparison.
+For on-premises deployment, [InsightFace](http://insightface.ai/) models are used extensively. In particular, [RetinaFace](https://arxiv.org/abs/1905.00641) is the model to detect faces and [ArcFace](https://arxiv.org/abs/1801.07698) is the model to extract facial features for comparison.
 - `demo_images.ipynb` is a demo to detect and compare faces in images.
   - `faces` directory contains 7 faces to compare during test.
 - `demo_videos.py` is a demo to detect faces in videos.
